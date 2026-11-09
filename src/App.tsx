@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, Menu, X } from "lucide-react";
-import GameLabsModal from "./components/GameLabsModal";
+import ProjectModal from "./components/ProjectModal";
+import { projects } from "./data/projects";
+import type { Project } from "./data/projects";
 
 import {
   SiReact,
@@ -21,18 +23,6 @@ import {
 
 import { FaJava } from "react-icons/fa";
 import "./App.css";
-
-const projects = [
-  {
-    number: "01",
-    name: "GameLabs",
-    category: "Desktop Application",
-    description:
-      "Launcher de jogos para PC com integração a emuladores, suporte a controles, biblioteca centralizada e sistema de licenciamento.",
-    stack: ["React", "TypeScript", "Electron"],
-    image: "/images/Gamelabs.png",
-  },
-];
 
 const fallingLeaves = Array.from({ length: 14 }, (_, i) => ({
   id: i,
@@ -110,7 +100,7 @@ const technologies = [
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [gameLabsOpen, setGameLabsOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
@@ -266,7 +256,7 @@ export default function App() {
                   type="button"
                   className="project-open"
                   aria-label={`Ver detalhes do projeto ${project.name}`}
-                  onClick={() => setGameLabsOpen(true)}
+                  onClick={() => setSelectedProject(project)}
                 >
                   <div className="project-art">
                     <img
@@ -389,9 +379,9 @@ export default function App() {
         </div>
       </section>
 
-      <GameLabsModal
-        open={gameLabsOpen}
-        onClose={() => setGameLabsOpen(false)}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
       />
 
       <footer>

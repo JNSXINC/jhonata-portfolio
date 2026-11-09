@@ -423,8 +423,8 @@ footer > span {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(35px);
+  opacity: 1;
+  transform: translateY(0);
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
@@ -1449,5 +1449,30 @@ img {
 
   .contact-links a {
     justify-content: center;
+  }
+}
+/* GRID RESPONSIVO DOS PROJETOS */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Celulares */
+@media (max-width: 700px) {
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
