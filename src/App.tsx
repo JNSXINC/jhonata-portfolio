@@ -376,6 +376,15 @@ export default function App() {
             >
               LinkedIn ↗
             </a>
+            <a
+              href={`https://wa.me/5521979606555?text=${encodeURIComponent(
+                "Olá, Jhonata! Tudo bem? 👋 Conheci seu portfólio e gostaria de saber mais sobre seus serviços de desenvolvimento. Podemos conversar sobre um projeto?",
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp ↗
+            </a>
           </div>
         </div>
       </section>
